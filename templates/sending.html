@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Sending
+{% endblock %}
+
+{% block main %}
+
+<table id="history-table" class="table table-striped">
+    <thead>
+        <tr>
+            <th class="text-center">Date</th>
+            <th class="text-center">Receiver</th>
+            <th class="text-center">Status</th>
+            <th class="text-center">Order number</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for exchange in exchanges %}
+        <tr class="{% if exchange.processing == 1 %}table-success{% else %}table-danger{% endif %}">
+            <td class="text-center">  {{ exchange.order_datetime }}  </td>
+            <td class="text-center">  {{ exchange.receiver }}  </td>
+            <td class="text-center">  {% if exchange.processing == 1 %}processed{% else %}in progress{% endif %} </td>
+            <td class="text-center">  {{ exchange.order_number }}  </td>
+        </tr>
+        {% endfor %}
+        
+    </tbody>
+</table>
+        
+
+    
+
+
+{% endblock %}

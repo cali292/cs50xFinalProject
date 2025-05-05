@@ -1,0 +1,54 @@
+/* Size for brand */
+nav .navbar-brand
+{
+    font-size: xx-large;
+}
+
+/* Colors for brand */
+nav .navbar-brand .blue
+{
+    color: #537fbe;
+}
+nav .navbar-brand .red
+{
+    color: #ea433b;
+}
+nav .navbar-brand .yellow
+{
+    color: #f5b82e;
+}
+nav .navbar-brand .green
+{
+    color: #2e944b;
+}
+
+nav .navbar-brand .greendark
+{
+    color: #034110
+}
+
+
+.btn-primary {
+    
+    
+    background: rgb(10, 167, 80);
+    border-color: rgb(10, 167, 80);
+
+}
+.btn-primary:hover {
+    
+    
+    background: rgb(10, 167, 80);
+
+}
+
+.table-custom-success {
+    background-color: #2e944b;
+    color: white; 
+}
+
+.table-custom-danger {
+    background-color: #ea433b;
+    color: white;
+}
+

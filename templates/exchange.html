@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    make_exchange
+{% endblock %}
+
+{% block main %}
+
+    <form id = "exchangeForm" action = "/exchange" method = "POST" target = "pdfWindow">
+        <!-- form with datalist of name -->
+        <div class="mb-3">
+            <input autofocus class="form-control mx-auto w-auto" list="elements" id="choix" name="recipient" placeholder="Receiver">
+            <datalist id="elements">
+                {% for client_name in client_names %}
+                <option value="{{ client_name }}">
+                {% endfor %}
+            </datalist>
+        </div>
+        <button class="btn btn-primary" type="submit">Create an exchange</button>
+    </form>
+    <script>
+        document.getElementById('exchangeForm').onsubmit = function(event) {
+            //open a new window to display the pdf
+            var pdfWindow = window.open('','pdfWindow');
+            // After form submission, the PDF will open in the new window (thanks to target="pdfWindow")
+            setTimeout(function() {
+                // Redirect back to index after PDF is generated and the user has the PDF open
+                window.location.href = "/";
+            }, 1000); // Adjust timeout as needed (here, it's 1 second)
+        };
+        
+    </script>
+        
+
+    
+
+
+{% endblock %}

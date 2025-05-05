@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Form Data PDF</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
+
+        .qr-code {
+            text-align: center;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid gray;
+            border-collapse: collapse;
+        }
+
+        td {
+            padding: 15px;
+        }
+        table{
+            width: 100%;
+            border-radius: 5px;
+        }
+        th {
+            padding-left: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Exchange form</h1>
+    <table>
+        <tr>
+            <th><strong>Sender</strong></th>
+            <td>
+                {{ sender_info[0]['name'] }},{{ sender_info[0]['address']}}
+            </td>
+        </tr>
+        <tr>
+            <th><strong>Receiver</strong></th>
+            <td>
+                {{ recipient_info[0]['name'] }}, {{ recipient_info[0]['address']}}
+            </td>
+        </tr>
+        <tr>
+            <th><strong>Rounds</strong></th>
+            <td>{{ recipient_info[0]['rounds'] }}</td>
+        </tr>
+    </table>
+
+
+    <div class="qr-code">
+        <h2>QR Code</h2>
+        <!-- Embed QR code image using base64 string -->
+        <img src="data:image/png;base64,{{ img_base64 }}" alt="QR Code" style="width:150px;height:150px;">
+    </div>
+</body>
+
+</html>

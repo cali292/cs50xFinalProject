@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Research Table
+{% endblock %}
+
+{% block main %}
+
+<table id="history-table" class="table table-striped">
+    <thead>
+        <tr>
+            <th class="text-center">Date</th>
+            <th class="text-center">Sender</th>
+            <th class="text-center">Receiver</th>
+            <th class="text-center">Status</th>
+            <th class="text-center">Order number</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for research in research_order %}
+        <tr class="{% if research.processing == 1 %}table-success{% else %}table-danger{% endif %}">
+            <td class="text-center">  {{ research.order_date }}  </td>
+            <td class="text-center">  {{ research.sender }}  </td>
+            <td class="text-center">  {{ research.receiver }}  </td>
+            <td class="text-center">  {% if research.processing == 1 %}processed{% else %}in progress{% endif %} </td>
+            <td class="text-center">  {{ research.order_number }}  </td>
+        </tr>
+        {% endfor %}
+        
+    </tbody>
+</table>
+        
+
+    
+
+
+{% endblock %}
