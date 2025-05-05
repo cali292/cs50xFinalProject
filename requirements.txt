@@ -1,1 +1,5 @@
 flask
+flask-session
+cs50
+weasyprint
+werkzeug
